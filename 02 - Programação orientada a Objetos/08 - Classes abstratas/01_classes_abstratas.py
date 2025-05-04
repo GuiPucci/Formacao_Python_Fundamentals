@@ -10,6 +10,12 @@ class ControleRemoto(ABC):
     def desligar(self):
         pass
 
+    # @abstractproperty - O decorador @abstractproperty aparece riscado (deprecado) porque ele está obsoleto nas versões mais recentes do Python. Esse decorador foi substituído por uma combinação de @property com @abstractmethod.
+    @property
+    @abstractmethod
+    def marca(self):
+        pass
+
 
 class ControleTV(ControleRemoto):
     def ligar(self):
@@ -19,6 +25,10 @@ class ControleTV(ControleRemoto):
     def desligar(self):
         print("Desligando a TV")
         print("Desligada!")
+
+    @property
+    def marca(self):
+        return "Philco"
 
 
 class ControleARCondicionado(ControleRemoto):
@@ -30,11 +40,17 @@ class ControleARCondicionado(ControleRemoto):
         print("Desligando o Ar Condicionado")
         print("Ar Condicionado Desligado!")
 
+    @property
+    def marca(self):
+        return "LG"
+
 
 controle = ControleTV()
 controle.ligar()
 controle.desligar()
+print(controle.marca)
 
 
 controle = ControleARCondicionado()
 controle.ligar()
+print(controle.marca)
