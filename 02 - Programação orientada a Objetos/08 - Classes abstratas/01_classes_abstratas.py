@@ -28,7 +28,7 @@ class ControleTV(ControleRemoto):
 
     @property
     def marca(self):
-        return "Philco"
+        return "LG"
 
 
 class ControleARCondicionado(ControleRemoto):
